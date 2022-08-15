@@ -1,9 +1,5 @@
 'use strict';
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// BANKIST APP
-
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
@@ -68,120 +64,11 @@ const inputClosePin = document.querySelector('.form__input--pin');
 const errorMsz = document.querySelector('.error__msz');
 const loginScreen = document.querySelector('.login__screen');
 
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-// LECTURES
-
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// /////////////////////////////////////////////////
 
-// for (const [i, movement] of movements.entries()) {
-//     if(movement > 0) {
-//       console.log(`Deposited: ${i + 1} - ${movement}`)
-//     } else {
-//       console.log(`WithDraw: ${i + 1} - ${Math.abs(movement)}`)
-//     }
-// };
-// console.log('-----------------')
-// movements.forEach(function(movement, i, arr) {
-//   if(movement > 0) {
-//     console.log(`Deposited: ${i + 1} - ${movement}`)
-//   } else {
-//     console.log(`WithDraw: ${i + 1} - ${Math.abs(movement)}`)
-//   }
-// })
-
-// console.log('-----------------')
-
-// currencies.forEach(function(curr, key, obj) {
-//   console.log(`Key:${key}, Value: ${curr}`)
-// })
-
-// const moveDescArry = movements.map ( 
-//   (movement, i) => 
-//   `movement ${i +1}: You ${movement > 0} ? 'Depost' : 'withdraw' ${Math.abs(movement)}`);
-
-//   console.log(moveDescArry);
-// const deposit = movements.filter( (arr) => arr > 0 )
-
-// console.log(deposit)
-// acc - it's the ACCUMULATE 
-// const addMove = movements.reduce( (acc, cur, i, arr) => acc + cur)
-// console.log(addMove);
-
-// Maximum Value of Reduce
-// const findMax = movements.reduce( (acc, cur, i, arr) => acc > cur ? acc : cur)
-//  console.log(findMax); 
-
-// Chining mthod 
-
-// const eurToUSD = 1.1;
-// // PIPELINE 
-// const totalDepositUSD = movements
-//   .filter( ( arr ) => arr > 0)
-//   .map( arr => arr * eurToUSD )
-//   .reduce( (acc, arr) => acc + arr);
-
-//console.log(totalDepositUSD);
-
-// Find method - it returns the first true value
-// const findMe = movements.find( arr => arr < 0);
-// console.log(findMe); // -400 First Withdraw
-
-// Some Method return one 
-// Every Method retuen every value
-
-// const findSome = movements.some( arr => arr === -130);
-// console.log(findSome);
-// // Check if all the movements are Postive
-// const findEvery = movements.every( arr => arr > 0)
-// console.log(findEvery);
-
-// Write Callback for same conditions 
-
-//  Combine all the array in one Array - it goes one level Deep
-// const arr = [ [1,2,3], [4,5,6],[7,8,9]];
-// console.log(arr.flat());
-
-// const arrDeep = [ [1,2,3, [12,34,45, [45,56 ]]], [4,5,6],[7,8,9]];
-// console.log(arrDeep);
-// // Pass the argument as the level of nesting
-// console.log(arrDeep.flat(3))
-
-// Sorting the Arrays 
-const arrAlp = ['Maninder', 'sasasa', 'asasasass', 'ghhh'];
-console.log(arrAlp.sort());
-
-console.log(movements.sort());
-
-// const numberSort = movements.sort( (a, b) => { 
-//   if ( a > b) {
-//     return 1;
-//   } 
-//   if (b > a) {
-//     return -1;
-//   }
-// })
-// Using above same with ternerty operator
-// const numberSort = movements.sort( (a,b) => a > b ? 1 : -1);
-// console.log(numberSort)
-
-// const numberSortShort = movements.sort( (a,b) => a - b);
-// console.log(numberSortShort)
-
-
-
-
-
-const findUser = accounts.find(arr => arr.owner === 'Jonas Schmedtmann');
-console.log(findUser);
+// Functions 
 
 const displayMovements = function (movement, sort = false) {
 
@@ -214,20 +101,6 @@ const calcTotalDisplayBal = function (acc) {
   labelBalance.textContent = `Total Bal: ${ acc.balance} €`;
 }
 
-// const allAccMoveMents = accounts.map( arr => arr.movements);
-// console.log(allAccMoveMents);
-
-// const overAllBalance = allAccMoveMents.flat();
-// console.log(overAllBalance);
-
-// const finalBankTotal = overAllBalance.reduce( (acc, mov) => acc + mov , 0);
-// console.log(finalBankTotal);
-
-// const calcTotalBankAmount = function(acc) {
-//   const finalBankAmount = acc.map( arr => arr.movements).flat().reduce( (acc, mov) => acc + mov, 0);
-//   labelTotalBankBalance.textContent = `${finalBankAmount}€`
-// }
-  
 const calcIncomeBal = function (acc) {
   const income = acc.movements
     .filter(mov => mov > 0)
@@ -251,17 +124,6 @@ const calcIncomeBal = function (acc) {
   labelSumInterest.textContent = `${Math.abs(interest)} €`
 }
 
-
-// const calcWithDrawBal = function(movements) {
-//   const income = movements
-//     .filter( mov => mov < 0)
-//     .reduce( (acc, mov) => acc + mov);
-
-//     labelSumOut.textContent = `${Math.abs(income)} EUR`
-// }
-
-//calcWithDrawBal(account1.movements);
-
 const updateUIElement = function (acc) {
 
   // Display Current USER
@@ -274,18 +136,6 @@ const updateUIElement = function (acc) {
   console.log(acc)
   
 }
-
-// const allAccMoveMents = accounts.map( arr => arr.movements);
-// console.log(allAccMoveMents);
-
-// const overAllBalance = allAccMoveMents.flat();
-// console.log(overAllBalance);
-
-// const finalBankTotal = overAllBalance.reduce( (acc, mov) => acc + mov , 0);
-// console.log(finalBankTotal);
-
-// Using above with Chain 
-
 
 const createUserName = function (accs) {
   let user;
@@ -321,6 +171,7 @@ const startTimerLogin = function() {
   }, 1000);
 }
 
+
 // Event Handler 
 
 let currentAccount;
@@ -347,16 +198,6 @@ btnLogin.addEventListener('click', function (e) {
     startTimerLogin();
     updateUIElement(currentAccount);
 
-    // const finalBankBal = accounts
-    //   .map( arr => arr.movements)
-    //   .flat()
-    //   .reduce( (acc, mov) => acc + mov , 0);
-    //   console.log(finalBankBal);
-    //   console.log(labelTotalBankBalance)
-    //   labelTotalBankBalance.textContent = `Total Bank Bal: ${finalBankBal}€`
-
-
-    // 
   } else {
     errorMsz.classList.add('visible');
     errorMsz.textContent = `The User Name or Password doesn't Match with DataBase`
