@@ -152,7 +152,7 @@ const createUserName = function (accs) {
 createUserName(accounts);
 
 const startTimerLogin = function() {
-  let time = 120;
+  let time = 300;
 
   const timer = setInterval(() => {
       const mint = String(Math.trunc(time / 60)).padStart(2, 0);
